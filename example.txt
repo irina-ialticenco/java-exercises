@@ -1,1 +1,2 @@
-Hi, what are you doing?
+- Hi, what are you doing?
+- I am studying programming!
