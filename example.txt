@@ -1,3 +1,4 @@
 - Hi, what are you doing?
 - I am studying programming!
 - And do you like it?
+- It is rainy
