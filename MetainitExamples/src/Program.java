@@ -17,13 +17,28 @@ public class Program {
         questions.add(new Question("В каком году люди высадились на Луну:" +
                 "1- 1952 2- 1961 3- 1969 4- 1974", 3));
         questions.add(new Question("Какая самая высокая гора? 1 - Килиманджаро 2 - Эльбрус 3 - Олимп 4 - Эверест", 4));
+        questions.add(new Question("Какой самый большой остров? 1 - Хоккайдо 2 - Мадагаскар 3 - Гренландия 4 - Сахалин", 2));
 
-        for (int i = 0; i < questions.size(); i++) {
-            Question question = questions.get(i);
+        Random random = new Random();
+
+        int currentAmount = 0;
+        int numberOfQuestion = 1;
+
+        while (questions.size() > 0) {
+            int indexOfQuestion = random.nextInt(questions.size());
+            Question question = questions.get(indexOfQuestion);
+            questions.remove(question);
+
             boolean answer = askQuestion(question.title, question.rightAnswer);
-            if (!answer) {
+            if (!answer)
                 return;
-            }
+
+            currentAmount = currentAmount + numberOfQuestion * 100;
+            numberOfQuestion++;
+
+            System.out.println("************");
+            System.out.println("Ваш выигрыш: " + currentAmount);
+            System.out.println("************");
         }
 
         System.out.println("Вы победитель!");
