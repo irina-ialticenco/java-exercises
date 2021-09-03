@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Scanner;
 
 public class Apteka {
@@ -12,9 +11,13 @@ public class Apteka {
         products.add(new Product("Peroxid de hidrogen 3 %", 200, 14.87));
         products.add(new Product("Tinctura de galbenele", 484, 10.40));
         products.add(new Product("Durex play", 503, 120.40));
-        products.add(getEmptyProduct());
+        // products.add(getEmptyProduct());
+        findCheapestProduct(products);
+        findAverage(products);
 
-        boolean isWorking = true;
+
+
+        /*boolean isWorking = true;
         double total = 0;
 
         while (isWorking) {
@@ -42,7 +45,7 @@ public class Apteka {
         System.out.println("===========");
         System.out.println(String.format("Всего: %.2f", total));
 
-        /*int k = 57;
+        int k = 57;
         int c = 32;
         Apteka apteka = new Apteka();
         apteka.calculate(5);
@@ -52,10 +55,11 @@ public class Apteka {
         apteka.calculate(sqrt(k * c));*/
     }
 
+
     private static Product findProductByCode(ArrayList<Product> products, int code) {
         for (int i = 0; i < products.size(); i++) {
             Product product = products.get(i);
-            if(code ==product.getCode()){
+            if (code == product.getCode()) {
                 return product;
             }
         }
@@ -63,8 +67,37 @@ public class Apteka {
         return null;
     }
 
-    public static Product getEmptyProduct(){
-        return new Product("",0,0);
+
+    private static Product findCheapestProduct(ArrayList<Product> products) {
+        Product minProduct = products.get(0);
+        for (int j = 0; j < products.size(); j++) {
+            Product product = products.get(j);
+            if (minProduct.getPrice() > product.getPrice()) {
+                minProduct = product;
+
+            }
+
+        }
+        System.out.println(minProduct.getName() + ":" + minProduct.getPrice());
+
+        return minProduct;
+    }
+
+    private static double findAverage(ArrayList<Product> products) {
+        double sum = 0;
+        for (int f = 0; f < products.size(); f++) {
+            Product product = products.get(f);
+            sum += product.getPrice();
+        }
+        double average = sum / products.size();
+        System.out.println("Средняя цена продуктов: " + average);
+        return average;
+
+    }
+
+
+    public static Product getEmptyProduct() {
+        return new Product("", 0, 0);
     }
 
     public static int sqrt(int m) {

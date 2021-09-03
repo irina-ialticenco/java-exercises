@@ -9,23 +9,27 @@ public class Product {
         this.price = price;
     }
 
-    public String getName(){
+    public String getName() {
         return name;
     }
 
-    public void setName(String name){
-        this.name= name;
+    public void setName(String name) {
+        this.name = name;
     }
-    public int getCode(){
+
+    public int getCode() {
         return code;
     }
+
     public void setCode(int code) {
         this.code = code;
     }
-    public double getPrice(){
+
+    public double getPrice() {
         return price;
     }
-    public void setPrice(double price){
+
+    public void setPrice(double price) {
         this.price = price;
     }
 }
